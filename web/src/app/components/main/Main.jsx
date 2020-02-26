@@ -1,54 +1,25 @@
 import React from 'react';
 import './main.scss';
 
-export function Main() {
+export function Main(props) {
   return (
     <main>
       <ul>
-        <li className="dev-item">
-          <header>
-            <img src="https://avatars0.githubusercontent.com/u/30526312?s=460&v=4" alt="Bruno Nascimento"/>
-            <div className="user-info">
-              <strong>Bruno Nascimento</strong>
-              <span>ReactJS, React Native, NodeJS</span>
-            </div>
-          </header>
-          <p>ReactJS and Angular Developer</p>
-          <a href="https://github.com/brunomouranascimento">Acessar perfil no Github</a>
-        </li>
-        <li className="dev-item">
-          <header>
-            <img src="https://avatars0.githubusercontent.com/u/30526312?s=460&v=4" alt="Bruno Nascimento"/>
-            <div className="user-info">
-              <strong>Bruno Nascimento</strong>
-              <span>ReactJS, React Native, NodeJS</span>
-            </div>
-          </header>
-          <p>ReactJS and Angular Developer</p>
-          <a href="https://github.com/brunomouranascimento">Acessar perfil no Github</a>
-        </li>
-        <li className="dev-item">
-          <header>
-            <img src="https://avatars0.githubusercontent.com/u/30526312?s=460&v=4" alt="Bruno Nascimento"/>
-            <div className="user-info">
-              <strong>Bruno Nascimento</strong>
-              <span>ReactJS, React Native, NodeJS</span>
-            </div>
-          </header>
-          <p>ReactJS and Angular Developer</p>
-          <a href="https://github.com/brunomouranascimento">Acessar perfil no Github</a>
-        </li>
-        <li className="dev-item">
-          <header>
-            <img src="https://avatars0.githubusercontent.com/u/30526312?s=460&v=4" alt="Bruno Nascimento"/>
-            <div className="user-info">
-              <strong>Bruno Nascimento</strong>
-              <span>ReactJS, React Native, NodeJS</span>
-            </div>
-          </header>
-          <p>ReactJS and Angular Developer</p>
-          <a href="https://github.com/brunomouranascimento">Acessar perfil no Github</a>
-        </li>
+        {props.devs.map((dev) => (
+          <li className="dev-item" key={dev._id}>
+            <header>
+              <img src={dev.avatar_url} alt={dev.name} />
+              <div className="user-info">
+                <strong>{dev.name}</strong>
+                <span>{dev.techs.join(', ')}</span>
+              </div>
+            </header>
+            <p>{dev.bio}</p>
+            <a href={`https://github.com/${dev.github_username}`}>
+              Acessar perfil no Github
+            </a>
+          </li>
+        ))}
       </ul>
     </main>
   );

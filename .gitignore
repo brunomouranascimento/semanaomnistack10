@@ -3,6 +3,7 @@
 # dependencies
 ./back-end/node_modules
 ./web/node_modules
+./mobile/node_modules
 
 # testing
 /coverage
